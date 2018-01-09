@@ -1,1 +1,1 @@
-This project is an introduction to Git and GitHub.  Git is a method of source code management which is local to your computer,and GitHub is a websit that serves as the location for projects on the internet.
+This project is an introduction to Git and GitHub.  Git is a method of source code management which is local to your computer,and GitHub is a websit that serves as the location for projects on the internet. Another sentence means more information.
