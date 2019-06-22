@@ -1,0 +1,1210 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align:center">
+    <h1>MoovieTribe MooviEval</h1>
+    <h4>Seen it? Rate it!  &nbsp &nbsp &nbsp &nbsp Haven't seen it? Do you want to?</h4>
+    <br>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            <a href="https://www.imdb.com/title/tt0050083/" target="_blank">{{ form.film1.label }}</a><br>
+            {% for subfield in form.film1 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film2.label }}<br>
+            {% for subfield in form.film2 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film3.label }}<br>
+            {% for subfield in form.film3 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film3.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film4.label }}<br>
+            {% for subfield in form.film4 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film4.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film5.label }}<br>
+            {% for subfield in form.film5 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film5.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film6.label }}<br>
+            {% for subfield in form.film6 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film6.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>    <p>
+            {{ form.film7.label }}<br>
+            {% for subfield in form.film7 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film7.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film8.label }}<br>
+            {% for subfield in form.film8 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film8.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film9.label }}<br>
+            {% for subfield in form.film9 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film9.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film10.label }}<br>
+            {% for subfield in form.film10 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film10.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+                <p>
+            {{ form.film11.label }}<br>
+            {% for subfield in form.film11 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film11.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film12.label }}<br>
+            {% for subfield in form.film12 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film12.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film13.label }}<br>
+            {% for subfield in form.film13 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film13.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film14.label }}<br>
+            {% for subfield in form.film14 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film14.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film15.label }}<br>
+            {% for subfield in form.film15 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film15.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film16.label }}<br>
+            {% for subfield in form.film16 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film16.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>    <p>
+            {{ form.film17.label }}<br>
+            {% for subfield in form.film17 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film17.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film18.label }}<br>
+            {% for subfield in form.film18 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film18.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film19.label }}<br>
+            {% for subfield in form.film19 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film19.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film20.label }}<br>
+            {% for subfield in form.film20 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film20.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	        <p>
+            {{ form.film21.label }}<br>
+            {% for subfield in form.film21 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film21.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film22.label }}<br>
+            {% for subfield in form.film22 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film22.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film23.label }}<br>
+            {% for subfield in form.film23 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film23.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film24.label }}<br>
+            {% for subfield in form.film24 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film24.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film25.label }}<br>
+            {% for subfield in form.film25 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film25.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film26.label }}<br>
+            {% for subfield in form.film26 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film26.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film27.label }}<br>
+            {% for subfield in form.film27 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film27.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film28.label }}<br>
+            {% for subfield in form.film28 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film28.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film29.label }}<br>
+            {% for subfield in form.film29 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film29.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film30.label }}<br>
+            {% for subfield in form.film30 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film30.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	        <p>
+            {{ form.film31.label }}<br>
+            {% for subfield in form.film31 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film31.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film32.label }}<br>
+            {% for subfield in form.film32 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film32.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film33.label }}<br>
+            {% for subfield in form.film33 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film33.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film34.label }}<br>
+            {% for subfield in form.film34 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film34.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film35.label }}<br>
+            {% for subfield in form.film35 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film35.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film36.label }}<br>
+            {% for subfield in form.film36 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film36.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film37.label }}<br>
+            {% for subfield in form.film37 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film37.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film38.label }}<br>
+            {% for subfield in form.film38 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film38.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film39.label }}<br>
+            {% for subfield in form.film39 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film39.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film40.label }}<br>
+            {% for subfield in form.film40 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film40.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film41.label }}<br>
+            {% for subfield in form.film41 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film41.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film42.label }}<br>
+            {% for subfield in form.film42 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film42.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film43.label }}<br>
+            {% for subfield in form.film43 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film43.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film44.label }}<br>
+            {% for subfield in form.film44 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film44.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film45.label }}<br>
+            {% for subfield in form.film45 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film45.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film46.label }}<br>
+            {% for subfield in form.film46 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film46.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film47.label }}<br>
+            {% for subfield in form.film47 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film47.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film48.label }}<br>
+            {% for subfield in form.film48 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film48.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film49.label }}<br>
+            {% for subfield in form.film49 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film49.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film50.label }}<br>
+            {% for subfield in form.film50 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film50.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film51.label }}<br>
+            {% for subfield in form.film51 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film51.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film52.label }}<br>
+            {% for subfield in form.film52 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film52.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film53.label }}<br>
+            {% for subfield in form.film53 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film53.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film54.label }}<br>
+            {% for subfield in form.film54 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film54.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film55.label }}<br>
+            {% for subfield in form.film55 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film55.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film56.label }}<br>
+            {% for subfield in form.film56 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film56.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>    <p>
+            {{ form.film57.label }}<br>
+            {% for subfield in form.film57 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film57.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film58.label }}<br>
+            {% for subfield in form.film58 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film58.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film59.label }}<br>
+            {% for subfield in form.film59 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film59.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film60.label }}<br>
+            {% for subfield in form.film60 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film60.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film61.label }}<br>
+            {% for subfield in form.film61 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film61.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film62.label }}<br>
+            {% for subfield in form.film62 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film62.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film63.label }}<br>
+            {% for subfield in form.film63 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film63.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film64.label }}<br>
+            {% for subfield in form.film64 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film64.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film65.label }}<br>
+            {% for subfield in form.film65 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film65.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film66.label }}<br>
+            {% for subfield in form.film66 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film66.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film67.label }}<br>
+            {% for subfield in form.film67 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film67.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film68.label }}<br>
+            {% for subfield in form.film68 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film68.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film69.label }}<br>
+            {% for subfield in form.film69 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film69.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film70.label }}<br>
+            {% for subfield in form.film70 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film70.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film71.label }}<br>
+            {% for subfield in form.film71 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film71.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film72.label }}<br>
+            {% for subfield in form.film72 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film72.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film73.label }}<br>
+            {% for subfield in form.film73 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film73.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film74.label }}<br>
+            {% for subfield in form.film74 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film74.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film75.label }}<br>
+            {% for subfield in form.film75 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film75.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film76.label }}<br>
+            {% for subfield in form.film76 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film76.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film77.label }}<br>
+            {% for subfield in form.film77 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film77.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film78.label }}<br>
+            {% for subfield in form.film78 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film78.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film79.label }}<br>
+            {% for subfield in form.film79 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film79.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film80.label }}<br>
+            {% for subfield in form.film80 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film80.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film81.label }}<br>
+            {% for subfield in form.film81 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film81.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film82.label }}<br>
+            {% for subfield in form.film82 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film82.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film83.label }}<br>
+            {% for subfield in form.film83 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film83.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film84.label }}<br>
+            {% for subfield in form.film84 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film84.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film85.label }}<br>
+            {% for subfield in form.film85 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film85.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film86.label }}<br>
+            {% for subfield in form.film86 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film86.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film87.label }}<br>
+            {% for subfield in form.film87 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film87.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film88.label }}<br>
+            {% for subfield in form.film88 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film88.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film89.label }}<br>
+            {% for subfield in form.film89 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film89.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film90.label }}<br>
+            {% for subfield in form.film90 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film90.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film91.label }}<br>
+            {% for subfield in form.film91 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film91.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film92.label }}<br>
+            {% for subfield in form.film92 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film92.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film93.label }}<br>
+            {% for subfield in form.film93 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film93.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film94.label }}<br>
+            {% for subfield in form.film94 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film94.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film95.label }}<br>
+            {% for subfield in form.film95 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film95.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film96.label }}<br>
+            {% for subfield in form.film96 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film96.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>
+            {{ form.film97.label }}<br>
+            {% for subfield in form.film97 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film97.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film98.label }}<br>
+            {% for subfield in form.film98 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film98.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film99.label }}<br>
+            {% for subfield in form.film99 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film99.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.film100.label }}<br>
+            {% for subfield in form.film100 %}
+            <tr>
+              <td>{{ subfield }}</td>
+              <td>{{ subfield.label }}</td>
+            </tr>
+            {% endfor %}
+            {% for error in form.film100.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+	<p>{{ form.submit() }}</p>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,2454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+    html, body {
+    height: 100%;
+    margin: 0;
+    }
+    body {
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background:linear-gradient(to right,
+    rgba(255,255,255,0.7),
+    rgba(255,255,255,0.7)), url("https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_CR0,0,649,1000_AL_.jpg");
+    }
+    @keyframes scroll {
+    from {background-position: -100px -1000px;}
+    to {background-position: 100px 100px;}
+    }
+    div.transbox {
+    width: 600px;
+    height: 95%;
+    padding: 10px;
+    margin: 20px auto 20px auto;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.8;
+    animation-name: banner;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    }
+    @keyframes banner {
+    from {background-position: -100px -1000px;}
+    to {background-position: 100px 100px;}
+    }
+    #container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    }
+    #container1 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    }
+    .carousel {
+    opacity: 0.8;
+    background: white;
+    width: 450px;
+    height: 80%;
+    top: 125px;
+    bottom: 20px;
+    border:10px solid white;
+    margin: 20px auto 20px auto;
+    box-shadow:0px 0px 40px #000;
+    }
+    @media screen and (max-height: 925px) {
+      .carousel {
+        width: 360px;
+      }
+    }
+    @media screen and (max-height: 800px) {
+      .carousel {
+        width: 280px;
+      }
+    }
+    @media screen and (max-height: 675px) {
+      .carousel {
+        width: 200px;
+      }
+    }
+    .carousel > img {
+    display:none;
+    width:100%;
+    }
+    .carousel > input {
+    position:absolute;
+    left:-9999px;
+    }
+    .carousel > input:checked + label + img {
+    display:block;
+    }
+    
+    .carousel > label,
+    .carousel > input:checked ~ label ~ label ~ label ~ label {
+    display:none;
+    }
+    .carousel > input:checked + label {
+    display:block;
+    left:0;
+    }
+    .carousel > input:checked ~ label ~ label ~ label {
+    display:block;
+    right:0;
+    }
+    
+    .carousel > label {
+    position:absolute;
+    top:0;
+    width:25%;
+    height:100%;
+    visibility:hidden;
+    }
+    .carousel > label:before {
+    content:'';
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    visibility:visible;
+    }
+    span {
+    white-space:nowrap;
+    z-index: 10;
+    }
+    .carousel > label:after {
+    display:block;
+    position:absolute;
+    top:50%;
+    width:25px;
+    height:25px;
+    line-height:22px;
+    margin:-15px 10px 0 10px;
+    background-color:black;
+    color:white;
+    font-family:'Arial';
+    font-weight:bold;
+    font-size:18px;
+    text-align:center;
+    visibility:hidden;
+    border:2px solid white;
+    border-radius:20px;
+    box-shadow:0 3px 4px black;
+    }
+    .carousel > label:hover:after {
+    visibility:visible;
+    }
+    
+    .carousel > input:checked + label:after {
+    left:0;
+    content:'\00AB';
+    }
+    .carousel > input:checked ~ label ~ label ~ label:after {
+    right:0;
+    content:'\00BB';
+    }
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  /* Make Carousel Visible */
+  .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+  }
+
+  .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  }
+  </style>
+</head>
+{% block content %}
+<div id="container1" style="text-align:center">
+  <div class="transbox" style="text-align:center">
+    <h1>MoovieTribe MooviEval</h1>
+    <h4>Seen it? Rate it!  &nbsp &nbsp Haven't seen it? Do you want to?</h4>
+  </div>
+</div>
+<div id="container" style="text-align:center">
+  <div id="demo" class="carousel slide" data-interval="false" data-ride="carousel">
+    <form action="" method="post">
+      {{ form.hidden_tag() }}
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <p>
+	      {% for subfield in form.film1 %}
+              <tr>
+		<span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+		</span>
+	      </tr>
+	      {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+	      {% endfor %}
+              {% for error in form.film1.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0050083/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_CR0,0,649,1000_AL_.jpg">
+                </a>
+            </p>
+          </div>
+        <div class="carousel-item">
+            <p>
+              {% for subfield in form.film2 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film2.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+	    <p>
+	      <a href="https://www.imdb.com/title/tt0062622/" target="_blank">
+		<img src="https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg">
+		</a>
+	    </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film3 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film3.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0289043/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYTFkM2ViMmQtZmI5NS00MjQ2LWEyN2EtMTI1ZmNlZDU3MTZjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,666,1000_AL_.jpg">
+                </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film4 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film4.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt1517451/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNmE5ZmE3OGItNTdlNC00YmMxLWEzNjctYzAwOGQ5ODg0OTI0XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,666,1000_AL_.jpg">
+                </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film5 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film5.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+	      <a href="https://www.imdb.com/title/tt1517451/" target="_blank">
+		<img src="https://m.media-amazon.com/images/M/MV5BZjIwZWU0ZDItNzBlNS00MDIwLWFlZjctZTJjODdjZWYxNzczL2ltYWdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpghttps://m.media-amazon.com/images/M/MV5BZjIwZWU0ZDItNzBlNS00MDIwLWFlZjctZTJjODdjZWYxNzczL2ltYWdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg">
+	      </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film6 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film6.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0042192/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTY2MTAzODI5NV5BMl5BanBnXkFtZTgwMjM4NzQ0MjE@._V1_UX182_CR0,0,182,268_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film7 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film7.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0078754/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZWE4N2JkNDUtZDU4MC00ZjNhLTlkMjYtOTNkMjZhMDAwMDMyXkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film8 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film8.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0245712/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMWJhOTg5MWQtYTJjMi00YmFkLTg4ODgtYmU2YWVhODQ4ZDM3XkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film9 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film9.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0082010/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNTYzMDk3MzIyNV5BMl5BanBnXkFtZTgwOTM2OTE4MzE@._V1_SY1000_CR0,0,634,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film10 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film10.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0075686/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZDg1OGQ4YzgtM2Y2NS00NjA3LWFjYTctMDRlMDI3NWE1OTUyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film11 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film11.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0265086/" target="_blank">
+		<img src="https://m.media-amazon.com/images/M/MV5BYWMwMzQxZjQtODM1YS00YmFiLTk1YjQtNzNiYWY1MDE4NTdiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SY1000_SX675_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film12 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film12.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0039192/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTg3MDQxMzg2OF5BMl5BanBnXkFtZTgwNDY5NTY3MzE@._V1_.jpghttps://m.media-amazon.com/images/M/MV5BMTg3MDQxMzg2OF5BMl5BanBnXkFtZTgwNDY5NTY3MzE@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film13 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film13.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt1825683/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film14 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film14.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0171804/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BN2YyODgyYjMtN2ZiZC00OWMzLTg1NjgtZGIwN2NlYTYxMTkwXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film15 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film15.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0112573/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBmLWI0YzctOGYyNTkwMWE5MTJkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,677,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film16 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film16.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0088846/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNTA3NjkwYzMtMzc4Yy00NzZhLWE1NDUtOGE0N2YzYjgyMGIwL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_CR0,0,701,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film17 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film17.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt1843866/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMzA2NDkwODAwM15BMl5BanBnXkFtZTgwODk5MTgzMTE@._V1_SY1000_CR0,0,685,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film18 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film18.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0034583/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film19 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film19.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0317248/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMGU5OWEwZDItNmNkMC00NzZmLTk1YTctNzVhZTJjM2NlZTVmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,677,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film20 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film20.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0190332/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDdhMzMxOTctNDMyNS00NTZmLTljNWEtNTc4MDBmZTYxY2NmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film21 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film21.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0095016/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZjRlNDUxZjAtOGQ4OC00OTNlLTgxNmQtYTBmMDgwZmNmNjkxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,666,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film22 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film22.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt1136608/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYmQ5MzFjYWMtMTMwNC00ZGU5LWI3YTQtYzhkMGExNGFlY2Q0XkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film23 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film23.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0097216/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BODA2MjU1NTI1MV5BMl5BanBnXkFtZTgwOTU4ODIwMjE@._V1_SY1000_CR0,0,676,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film24 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film24.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0059113/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNzdmZTk4MTktZmExNi00OWEwLTgxZDctNTE4NWMwNjc1Nzg2XkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film25 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film25.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0036775/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BOGZiZjFiMWItN2NkZC00MjEwLTk4YzEtNTMwOTlmOGM3ZGJkXkEyXkFqcGdeQXVyMzAxNjg3MjQ@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film26 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film26.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0057012/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZWI3ZTMxNjctMjdlNS00NmUwLWFiM2YtZDUyY2I3N2MxYTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,643,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film27 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film27.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0048028/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNTYzNjI3MWUtZjg3Yi00ZDBkLWIwM2YtYmUyZGZjN2RiZjI5XkEyXkFqcGdeQXVyMDI2NDg0NQ@@._V1_SY1000_CR0,0,672,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film28 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film28.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0116250/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMDNhZGZiMzYtNzkxNy00MGE0LWE4Y2QtOGIwOTM3ZmY5M2QwXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SY1000_CR0,0,671,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film29 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film29.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0470752/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTUxNzc0OTIxMV5BMl5BanBnXkFtZTgwNDI3NzU2NDE@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film30 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film30.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0106332/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYmFhZmM3Y2MtNDA1Ny00NjkzLWJkM2EtYWU1ZjEwYmNjZDQ0XkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_SY1000_CR0,0,645,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film31 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film31.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt2802850/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTg5NTYxNjkyNl5BMl5BanBnXkFtZTgwNzY1Mjg4MTI@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film32 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film32.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0059170/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYzQzODhjOTktZDY2ZS00Y2E0LTgwZWEtNzdlOWI4MjY4OWMyXkEyXkFqcGdeQXVyMjUxOTQ5MzA@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film33 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film33.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0097351/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNzk5OWY0YjAtYWU3ZS00Y2Q4LWFlNjItMzgwMTQ2MjIyMDFmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,665,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film37 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film37.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0172495/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film38 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film38.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0047034/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjAzNTk3MTc2OF5BMl5BanBnXkFtZTgwNzI5MzU5MTE@._V1_SY1000_CR0,0,697,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film39 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film39.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0099685/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX667_CR0,0,667,999_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film40 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film40.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0067185/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BY2M5Mzg3NjctZTlkNy00MTU0LWFlYTQtY2E2Y2M4NjNiNzllXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film41 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film41.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0304141/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTY4NTIwODg0N15BMl5BanBnXkFtZTcwOTc0MjEzMw@@._V1_SY1000_CR0,0,676,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film42 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film42.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0450278/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTY1NDA3ODM1OV5BMl5BanBnXkFtZTcwMDM5NzEzMQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film43 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film43.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0385004/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMWYzM2JmOWItN2IxZC00MmFjLWEyMTQtYTQ2ODBiNjRlYmZlXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_SY1000_CR0,0,701,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film44 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film44.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt2096673/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film45 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film45.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt4302938/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjA2Mzg2NDMzNl5BMl5BanBnXkFtZTgwMjcwODUzOTE@._V1_SY1000_SX675_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film46 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film46.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0056172/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYWY5ZjhjNGYtZmI2Ny00ODM0LWFkNzgtZmI1YzA2N2MxMzA0XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SY1000_CR0,0,693,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film47 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film47.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0118799/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_SX670_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film48 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film48.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0103994/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTUxNDI3MTIyMF5BMl5BanBnXkFtZTcwMzg5NDEzMQ@@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film4 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film4.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="" target="_blank">
+                <img src="">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film49 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+	      {% endfor %}
+	      {% for error in form.film49.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0079522/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMzdmY2I3MmEtOGFiZi00MTg1LWIxY2QtNWUwM2NmNWNlY2U5XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SY1000_CR0,0,666,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film50 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film50.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0037059/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZWVmZmRlNWQtYzYyMy00ZDljLWE5MjgtNDE5MGVmYTQ5NDk0XkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_SX661_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film51 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+	      {% endfor %}
+              {% for error in form.film51.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0100157/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNzY0ODQ3MTMxN15BMl5BanBnXkFtZTgwMDkwNTg4NjE@._V1_SY1000_CR0,0,667,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film52 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+	      {% endfor %}
+	      {% for error in form.film52.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0198781/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTY1NTI0ODUyOF5BMl5BanBnXkFtZTgwNTEyNjQ0MDE@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film53 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film53.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0071853/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BN2IyNTE4YzUtZWU0Mi00MGIwLTgyMmQtMzQ4YzQxYWNlYWE2XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,666,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film54 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film54.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0151804/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BOTA5MzQ3MzI1NV5BMl5BanBnXkFtZTgwNTcxNTYxMTE@._V1_SY1000_CR0,0,675,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film55 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film55.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0081283/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNWU3MDFkYWQtMWQ5YS00YTcwLThmNDItODY4OWE2ZTdhZmIwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film56 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film56.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0069089/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYjc2NTM3ZTEtYzc0ZC00NjQ4LTk3MzktN2I4OWE1NTU3ZDFmXkEyXkFqcGdeQXVyNjE5MjUyOTM@._V1_SY1000_CR0,0,738,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film57 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film57.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0063442/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTg0NjUwMzg5NF5BMl5BanBnXkFtZTgwNDQ0NjcwMTE@._V1_SY1000_CR0,0,676,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film58 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film58.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt3829266/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjM5MDk2NDIxMF5BMl5BanBnXkFtZTgwNjU5NDk3NTM@._V1_SY1000_CR0,0,675,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film59 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film59.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0110912/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film60 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film60.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0110932/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNTYxNjdjMzUtYzAyNC00NWJhLWFlM2EtNWM4NDBhZmQ1YjJiXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SY1000_CR0,0,678,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film61 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film61.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0089885/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDRjNjRlNmYtZGVkOS00ODA1LWFmMTEtZmY1MWY5ZGM5OWUxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,639,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film62 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film62.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0063522/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZmEwZGU2NzctYzlmNi00MGJkLWE3N2MtYjBlN2ZhMGJkZTZiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,658,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film63 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film63.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0047478/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BOWE4ZDdhNmMtNzE5ZC00NzExLTlhNGMtY2ZhYjYzODEzODA1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_CR0,0,709,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film64 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film64.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0098724/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDllYWVkOTQtZjRlMC00NWFjLWI0OGEtOWY4YzU4ZjMxYzg3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film65 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film65.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0114436/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNzcyMjExNjg3OF5BMl5BanBnXkFtZTgwOTY4Mjc1MDE@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film66 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film66.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0245429/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNmU5OTQ0OWQtOTY0OS00Yjg4LWE1NDYtNDRhYWMxYWY4OTMwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,704,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film67 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film67.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0084726/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMzcyYWE5YmQtNDE1Yi00ZjlmLWFlZTAtMzRjODBiYjM3OTA3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_SX670_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film68 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film68.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt1408101/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTk2NzczOTgxNF5BMl5BanBnXkFtZTcwODQ5ODczOQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film69 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film69.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0078346/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMzA0YWMwMTUtMTVhNC00NjRkLWE2ZTgtOWEzNjJhYzNiMTlkXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_CR0,0,668,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film70 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film70.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0427944/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTI2MDk5MjE4NV5BMl5BanBnXkFtZTYwMjkwNTU3._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film71 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film71.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0112579/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BOTczNjIwMDM0MF5BMl5BanBnXkFtZTgwNzEzNTU1NTM@._V1_SY1000_CR0,0,670,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film72 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film72.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0104036/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYWU4MjQ3YzUtNTA3YS00YmRmLTk1YjktODM1NGU0MjFiOTUzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,639,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film73 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film73.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0069947/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNjZmMWE4NzgtZjc5OS00NTBmLThlY2MtM2MzNTA5NTZiNTFjXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film74 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film74.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0060371/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjEzODQ1Njg4M15BMl5BanBnXkFtZTgwODIyOTcwMjE@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film75 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film75.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0116209/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BOTkxZTdkNTQtM2QwOS00NzRlLWEyMGItYTcxOTE4NTgyNGVhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film76 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film76.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0083907/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BODc2MmVjZmUtNjAzMS00MDNiLWIyM2YtOGEzMjg0YjRhMzRmXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,643,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film77 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film77.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0463985/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTQ2NTMxODEyNV5BMl5BanBnXkFtZTcwMDgxMjA0MQ@@._V1_SY999_CR0,0,676,999_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film78 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film78.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0060196/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SY1000_CR0,0,656,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film79 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film79.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt1951264/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTAyMjQ3OTAxMzNeQTJeQWpwZ15BbWU4MDU0NzA1MzAx._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film80 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film80.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0119349/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNTQ1NzI1MzgtYWM3ZC00YjdhLWE1ODAtMmU0YzQzYjY3MjNiXkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film81 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film81.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt3464902/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDQ1NDE5NzQ1NF5BMl5BanBnXkFtZTgwNzA5OTM2NTE@._V1_SY1000_CR0,0,705,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film82 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film82.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0095705/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BODk1ZWM4ZjItMjFhZi00MDMxLTgxNmYtODFhNWZlZTkwM2UwXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,636,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film83 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film83.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0063462/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjI4YTQzZjAtODkzZi00ZWNiLTlkNDItNzJiY2RkNjBkYTk4L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_CR0,0,655,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film84 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film84.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0298130/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDA2NTg2NjE4Ml5BMl5BanBnXkFtZTYwMjYxMDg5._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film85 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film85.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0049730/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYWQ3YWJiMDEtMDBhNS00YjY1LTkzNmEtY2U4Njg4MjQ3YWE3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_SX654_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film86 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film86.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt5580390/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNGNiNWQ5M2MtNGI0OC00MDA2LWI5NzEtMmZiYjVjMDEyOWYzXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SY1000_CR0,0,674,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film87 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film87.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0111161/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film88 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film88.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0072271/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZDI3OWE0ZWMtNGJjOS00N2E4LWFiOTAtZjQ4OTNiNzIwN2NkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film89 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film89.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title//" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZmMyNzg3MGYtZTllNS00MjVjLWI0NmQtMTZlNzBmZjBjZTZmXkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_SY1000_CR0,0,651,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film90 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film90.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0114814/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,670,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+	    <div class="carousel-item">
+            <p>
+              {% for subfield in form.film91 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film91.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0056592/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNmVmYzcwNzMtMWM1NS00MWIyLThlMDEtYzUwZDgzODE1NmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,655,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+	      <div class="carousel-item">
+            <p>
+              {% for subfield in form.film92 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film92.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0086465/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYTEzMjBiMzktMjQyMS00YzBhLTgzNWQtNzA0NmEwMTNmMDQ2XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SY1000_SX675_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+	        <div class="carousel-item">
+            <p>
+              {% for subfield in form.film93 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film93.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt3152624/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTQ4MjgwNTMyOV5BMl5BanBnXkFtZTgwMTc1MjI0NDE@._V1_SY1000_CR0,0,631,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+		  <div class="carousel-item">
+            <p>
+              {% for subfield in form.film94 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film94.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt7908628/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNmFmMmJmODMtZDNjOS00NTQ1LWEzZTMtOGY5ZWI0YzhkODQ0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_SX686_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+		    <div class="carousel-item">
+            <p>
+              {% for subfield in form.film95 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film95.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0056687/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZmI0M2VmNTgtMWVhYS00Zjg1LTk1YTYtNmJmMjRkZmMwYTc2XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SY1000_CR0,0,649,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+		      <div class="carousel-item">
+            <p>
+              {% for subfield in form.film96 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film96.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0098635/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMjE0ODEwNjM2NF5BMl5BanBnXkFtZTcwMjU2Mzg3NA@@._V1_SY1000_CR0,0,666,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+		        <div class="carousel-item">
+            <p>
+              {% for subfield in form.film97 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film97.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0381707/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTY3OTg2OTM3OV5BMl5BanBnXkFtZTYwNzY5OTA3._V1_.jpg">
+              </a>
+            </p>
+          </div>          
+			  <div class="carousel-item">
+            <p>
+              {% for subfield in form.film98 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film98.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0095675/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYWM1NWFjMDItODg5OS00MWUwLWFjNWUtOGZkZWM3NmRiMWNjXkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_SY1000_SX700_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+			    <div class="carousel-item">
+            <p>
+              {% for subfield in form.film99 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film99.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt1877832/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BZGIzNWYzN2YtMjcwYS00YjQ3LWI2NjMtOTNiYTUyYjE2MGNkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>          
+			      <div class="carousel-item">
+            <p>
+              {% for subfield in form.film100 %}
+              <tr>
+                <span>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+                </span>
+              </tr>
+              {% if loop.index == 10 %}
+                <br>
+              {% endif %}
+              {% endfor %}
+              {% for error in form.film100.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0245574/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNDhjMzc3ZTgtY2Y4MC00Y2U3LWFiMDctZGM3MmM4N2YzNDQ5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,678,1000_AL_.jpg">
+              </a>
+            </p>
+          </div>
+	  <div class="carousel-item">
+	    <p>{{ form.submit() }}</p>
+	  </div>
+      </div>
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+	<span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+	<span class="carousel-control-next-icon"></span>
+      </a>
+  </div>
+  </form>
+</div>
+{% endblock %}
+</html>

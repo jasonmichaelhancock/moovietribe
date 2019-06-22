@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="responsiveslides.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="responsiveslides.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+    #container {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    }
+    .carousel {
+    width: 500px;
+    height: 60%;
+    bottom: 0;
+    border:10px solid white;
+    margin: 0 auto;
+    box-shadow:0px 0px 40px #000;
+    }
+    .carousel > img {
+    display:none;
+    width:100%;
+    }
+    .carousel > input {
+    position:absolute;
+    left:-9999px;
+    }
+    .carousel > input:checked + label + img {
+    display:block;
+    }
+    
+    .carousel > label,
+    .carousel > input:checked ~ label ~ label ~ label ~ label {
+    display:none;
+    }
+    .carousel > input:checked + label {
+    display:block;
+    left:0;
+    }
+    .carousel > input:checked ~ label ~ label ~ label {
+    display:block;
+    right:0;
+    }
+    
+    .carousel > label {
+    position:absolute;
+    top:0;
+    width:25%;
+    height:100%;
+    visibility:hidden;
+    }
+    .carousel > label:before {
+    content:'';
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    visibility:visible;
+    }
+    .carousel > label:after {
+    display:block;
+    position:absolute;
+    top:50%;
+    width:25px;
+    height:25px;
+    line-height:22px;
+    margin:-15px 10px 0 10px;
+    background-color:black;
+    color:white;
+    font-family:'Arial';
+    font-weight:bold;
+    font-size:18px;
+    text-align:center;
+    visibility:hidden;
+    border:2px solid white;
+    border-radius:20px;
+    box-shadow:0 3px 4px black;
+    }
+    .carousel > label:hover:after {
+    visibility:visible;
+    }
+    
+    .carousel > input:checked + label:after {
+    left:0;
+    content:'\00AB';
+    }
+    .carousel > input:checked ~ label ~ label ~ label:after {
+    right:0;
+    content:'\00BB';
+    }
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+    img {
+    z-index: -1;
+    }
+  /* Make Carousel Visible */
+  .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+  }
+
+  .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23f00' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  }
+  </style>
+</head>
+{% block content %}
+<div style="text-align:center">
+<h1>MoovieTribe MooviEval</h1>
+<h4>Seen it? Rate it!  &nbsp &nbsp &nbsp &nbsp Haven't seen it? Do you want to?</h4>
+</div>
+<div id="container" style="text-align:center">
+    <form action="" method="post">
+      {{ form.hidden_tag() }}
+      <div id="demo" class="carousel slide" data-interval="false" data-ride="carousel">
+	<div class="carousel-inner">
+	  <div class="carousel-item active">
+            <p>
+              {% for subfield in form.film1 %}
+              <tr>
+		<td>{{ subfield }}</td>
+		<td>{{ subfield.label }}</td>
+              </tr>
+              {% endfor %}
+              {% for error in form.film1.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+	    <p>
+	      <a href="https://www.imdb.com/title/tt0050083/" target="_blank">
+		<img src="https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_CR0,0,649,1000_AL_.jpg">
+		</a>
+            </p>
+	  </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film2 %}
+              <tr>
+		<td>{{ subfield }}</td>
+		<td>{{ subfield.label }}</td>
+              </tr>
+              {% endfor %}
+              {% for error in form.film2.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+	    <p>
+	      <a href="https://www.imdb.com/title/tt0062622/" target="_blank">
+		<img src="https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg">
+		</a>
+	    </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film3 %}
+              <tr>
+		<td>{{ subfield }}</td>
+		<td>{{ subfield.label }}</td>
+              </tr>
+              {% endfor %}
+              {% for error in form.film3.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt0289043/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BYTFkM2ViMmQtZmI5NS00MjQ2LWEyN2EtMTI1ZmNlZDU3MTZjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,666,1000_AL_.jpg">
+                </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film4 %}
+              <tr>
+		<td>{{ subfield }}</td>
+		<td>{{ subfield.label }}</td>
+              </tr>
+              {% endfor %}
+              {% for error in form.film4.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+              <a href="https://www.imdb.com/title/tt1517451/" target="_blank">
+                <img src="https://m.media-amazon.com/images/M/MV5BNmE5ZmE3OGItNTdlNC00YmMxLWEzNjctYzAwOGQ5ODg0OTI0XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,666,1000_AL_.jpg">
+                </a>
+            </p>
+          </div>
+          <div class="carousel-item">
+            <p>
+              {% for subfield in form.film5 %}
+              <tr>
+		<td>{{ subfield }}</td>
+		<td>{{ subfield.label }}</td>
+              </tr>
+              {% endfor %}
+              {% for error in form.film5.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+            </p>
+            <p>
+	      <a href="https://www.imdb.com/title/tt1517451/" target="_blank">
+		<img src="https://m.media-amazon.com/images/M/MV5BZjIwZWU0ZDItNzBlNS00MDIwLWFlZjctZTJjODdjZWYxNzczL2ltYWdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpghttps://m.media-amazon.com/images/M/MV5BZjIwZWU0ZDItNzBlNS00MDIwLWFlZjctZTJjODdjZWYxNzczL2ltYWdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg">
+	      </a>
+            </p>
+          </div>
+	  <div class="carousel-item">
+	    <p>{{ form.submit() }}</p>
+	  </div>
+	</div>
+	<a class="carousel-control-prev" href="#demo" data-slide="prev">
+	  <span class="carousel-control-prev-icon"></span>
+	</a>
+	<a class="carousel-control-next" href="#demo" data-slide="next">
+	  <span class="carousel-control-next-icon"></span>
+	</a>
+      </div>
+    </form>
+</div>
+{% endblock %}
+</html>
