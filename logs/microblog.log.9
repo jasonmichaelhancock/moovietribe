@@ -1,0 +1,142 @@
+2021-11-28 20:14:58,462 ERROR: Exception on /add_moovie [POST] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2021-11-28 20:15:57,563 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-11-28 20:16:51,692 ERROR: Exception on /add_moovie [POST] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: moovie.mootitle
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 91, in add_moovie
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 633, in execute
+    uow,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 247, in save_obj
+    insert,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1222, in _emit_insert_statements
+    execution_options=execution_options,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1583, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1462, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1815, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1996, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: moovie.mootitle
+[SQL: INSERT INTO moovie (mootitle, imdb) VALUES (?, ?)]
+[parameters: ('The Grapes of Wrath (1940)', 'tt0079574')]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 96, in add_moovie
+    return render_template('add_moovie.html', title=_('Search'), form=form)
+  File "c:\users\hanco\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\hanco\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\hanco\moovietribe\app\templates\add_moovie.html", line 2, in top-level template code
+    {% import 'bootstrap/form.html' as wtf %}
+  File "C:\Users\hanco\moovietribe\app\templates\base.html", line 124, in top-level template code
+    <h6><a class="nav-link" href="{{ url_for('main.user', id=current_user.id) }}">
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 481, in __get__
+    return self.impl.get(state, dict_)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 926, in get
+    value = self._fire_loader_callables(state, key, passive)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 957, in _fire_loader_callables
+    return state._load_expired(state, passive)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\state.py", line 710, in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 1453, in load_scalar_attributes
+    no_autoflush=no_autoflush,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 412, in load_on_ident
+    execution_options=execution_options,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 528, in load_on_pk_identity
+    bind_arguments=bind_arguments,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1688, in execute
+    conn = self._connection_for_bind(bind)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1530, in _connection_for_bind
+    engine, execution_options
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 721, in _connection_for_bind
+    self._assert_active()
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 608, in _assert_active
+    code="7s2a",
+sqlalchemy.exc.PendingRollbackError: This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: (sqlite3.IntegrityError) UNIQUE constraint failed: moovie.mootitle
+[SQL: INSERT INTO moovie (mootitle, imdb) VALUES (?, ?)]
+[parameters: ('The Grapes of Wrath (1940)', 'tt0079574')]
+(Background on this error at: https://sqlalche.me/e/14/gkpj) (Background on this error at: https://sqlalche.me/e/14/7s2a)
+2021-11-28 20:19:19,701 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-11-29 08:26:48,896 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-11-29 14:49:07,789 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-11-29 14:55:05,500 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-11-29 14:56:19,704 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-11-29 14:58:46,087 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-11-29 15:00:06,349 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-11-29 15:09:48,557 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]

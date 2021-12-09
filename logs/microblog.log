@@ -1,0 +1,126 @@
+2021-12-02 18:02:13,254 ERROR: Exception on /new_moovies_admin [GET] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 349, in new_moovies_admin
+    all_moovies = Moovies.query.all
+NameError: name 'Moovies' is not defined
+2021-12-02 18:02:43,454 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:02:47,960 ERROR: Exception on /new_moovies_admin [GET] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 350, in new_moovies_admin
+    form = NewMoovieForm()
+NameError: name 'NewMoovieForm' is not defined
+2021-12-02 18:03:18,666 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:03:21,071 ERROR: Exception on /new_moovies_admin [GET] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 350, in new_moovies_admin
+    form = NewMoovieForm()
+  File "c:\users\hanco\venv\lib\site-packages\wtforms\form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+TypeError: __init__() missing 1 required positional argument: 'original_username'
+2021-12-02 18:04:12,998 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:04:15,948 ERROR: Exception on /new_moovies_admin [GET] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 357, in new_moovies_admin
+    return render_template('new_moovies_admin.html', title=_('New Moovies'), imgredients=ingredients,
+UnboundLocalError: local variable 'ingredients' referenced before assignment
+2021-12-02 18:04:57,736 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:05:05,369 ERROR: Exception on /new_moovies_admin [POST] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 353, in new_moovies_admin
+    all_moovies = Moovies.query.all
+NameError: name 'Moovies' is not defined
+2021-12-02 18:06:06,977 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:06:12,992 ERROR: Exception on /new_moovies_admin [POST] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 353, in new_moovies_admin
+    for moovie in all_moovies:
+TypeError: 'method' object is not iterable
+2021-12-02 18:06:48,003 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:07:39,008 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:08:24,388 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:10:10,346 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:10:16,928 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]

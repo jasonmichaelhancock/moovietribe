@@ -1,0 +1,130 @@
+2021-12-02 14:46:15,124 ERROR: Exception on /search [GET] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 80, in search
+    return render_template('search.html', title=_('Search'))
+  File "c:\users\hanco\venv\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\hanco\moovietribe\app\templates\search.html", line 8, in template
+    <form action="{{ url_for('main.result') }}" method="GET" autocomplete="off">
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\parser.py", line 170, in parse_statements
+    self.fail_eof(end_tokens)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\parser.py", line 104, in fail_eof
+    return self._fail_ut_eof(None, stack, lineno)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
+    self.fail(' '.join(message), lineno)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2021-12-02 14:47:42,403 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 14:48:59,927 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 15:19:20,902 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 15:19:26,854 ERROR: Exception on /search [GET] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 29, in before_request
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 633, in execute
+    uow,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    update,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 999, in _emit_update_statements
+    statement, multiparams, execution_options=execution_options
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1583, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 324, in _execute_on_connection
+    self, multiparams, params, execution_options
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1462, in _execute_clauseelement
+    cache_hit=cache_hit,
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1815, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1996, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1772, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\hanco\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
+[SQL: UPDATE user SET last_seen=? WHERE user.id = ?]
+[parameters: ('2021-12-02 23:19:21.328154', 16)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2021-12-02 15:20:26,094 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-02 18:01:28,057 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]

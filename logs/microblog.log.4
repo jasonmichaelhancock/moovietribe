@@ -1,0 +1,117 @@
+2021-12-01 08:39:42,243 ERROR: Exception on /add_moovie [GET] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 105, in add_moovie
+    return render_template('add_moovie.html', title=_('Search'), form=form)
+  File "c:\users\hanco\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\hanco\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\hanco\moovietribe\app\templates\add_moovie.html", line 2, in top-level template code
+    {% import 'bootstrap/form.html' as wtf %}
+  File "C:\Users\hanco\moovietribe\app\templates\base.html", line 173, in top-level template code
+    {% block app_content %}{% endblock %}
+  File "C:\Users\hanco\moovietribe\app\templates\add_moovie.html", line 19, in block "app_content"
+    <p style="text-align:center"> 3) To add the IMDB link to your moovie please add the IMDB id for your moovie.  If you search for your moovie on IMDB (do that  <a class="btn btn-outline-success" href="{{ url_for('https://www.imdb.com/') }}">HERE</a>) the result will have a url like this:<br>
+  File "c:\users\hanco\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "c:\users\hanco\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'https://www.imdb.com/'. Did you mean 'static' instead?
+2021-12-01 08:41:01,290 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:41:03,983 ERROR: Exception on /add_moovie [GET] [in c:\users\hanco\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\hanco\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\hanco\moovietribe\app\main\routes.py", line 105, in add_moovie
+    return render_template('add_moovie.html', title=_('Search'), form=form)
+  File "c:\users\hanco\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\hanco\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\hanco\moovietribe\app\templates\add_moovie.html", line 2, in top-level template code
+    {% import 'bootstrap/form.html' as wtf %}
+  File "C:\Users\hanco\moovietribe\app\templates\base.html", line 173, in top-level template code
+    {% block app_content %}{% endblock %}
+  File "C:\Users\hanco\moovietribe\app\templates\add_moovie.html", line 19, in block "app_content"
+    <p style="text-align:center"> 3) To add the IMDB link to your moovie please add the IMDB id for your moovie.  If you search for your moovie on IMDB (do that  <a class="btn btn-outline-success" href="{{ url_for('https://www.imdb.com/') }}">HERE</a>) the result will have a url like this:<br>
+  File "c:\users\hanco\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\hanco\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\hanco\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\hanco\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "c:\users\hanco\venv\lib\site-packages\werkzeug\routing.py", line 2181, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'https://www.imdb.com/'. Did you mean 'static' instead?
+2021-12-01 08:42:24,988 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:45:06,181 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:46:47,010 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:47:58,672 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:48:33,522 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:49:58,017 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:51:52,945 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:55:03,247 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:56:02,443 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:56:33,094 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:58:36,762 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:58:56,933 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 08:59:48,600 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:00:53,930 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:02:28,736 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:04:49,310 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:06:19,343 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:08:36,842 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:11:35,141 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:12:11,416 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:15:25,308 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
+2021-12-01 09:17:11,984 INFO: Microblog startup [in C:\Users\hanco\moovietribe\app\__init__.py:82]
