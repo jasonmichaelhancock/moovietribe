@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+<div style="text-align: center">
+<h3><span class="badge badge-pill" style="background-color:#39b249;">Edit Profile</span></h3>
+      <form action="" method="post">
+        {{ form.hidden_tag() }}
+            <div style="text-align: center">
+            Generate current Moovies
+          <input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" class="btn btn-outline-success" type="submit" name="submit" value="Submit"></div>
+      </form></div>
+
+      {{ ingredients }}
+{% endblock %}

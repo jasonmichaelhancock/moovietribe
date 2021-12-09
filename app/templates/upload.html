@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+<div style="text-align: center">
+<h3><span class="badge badge-pill" style="background-color:#39b249;">Upload Profile Pic</span></h3>
+<h5> Please use a LANDSCAPE photo<h5><h7>(meaning wider than tall:  like a moovie screen 	&#128512)</h7>
+  <br>
+  <br>
+<form method="POST" action="" enctype="multipart/form-data">
+  <p><input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" class="btn btn-outline-success" type="file" name="file" accept="image/*"></p>
+  <p><input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" class="btn btn-outline-success" type="submit" value="Submit"></p>
+</form>
+</div>
+
+{% endblock %}

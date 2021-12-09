@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+<div style="text-align: center">
+<h3><span class="badge badge-pill" style="background-color:#39b249;">Upload Moovie Poster</span></h3>
+We've automatically grabbed related images from TMDB.  Right-click to save the best image to your computer.  Then use the form below to upload it to MoovieTribe.<br>
+(If you don't see the poster for your moovie below, you can also look <a href="https://www.impawards.com" target="_blank">HERE</a>, or just skip this step.) <br>
+<form method="POST" action="" enctype="multipart/form-data">
+  <p><input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" class="btn btn-outline-success" type="file" name="file" accept="image/*"><input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" class="btn btn-outline-success" type="submit" value="Submit"></p>
+</form>
+</div>
+<div style="text-align: center">
+{% for element in data['results'] %}
+    <img src="https://image.tmdb.org/t/p/w500{{ element['poster_path'] }}""/>
+{% endfor %}
+</div>
+
+{% endblock %}

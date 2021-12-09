@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+<div style="text-align:center"><h3><span class="badge badge-pill" style="background-color:#39b249;">MoovieSearch</span></h3></div>
+<p style="text-align:center">Our moovie title format inlcudes the year like this:<br>Moonraker (1979)<br>Enter your moovie title, including the year of release in parentheses,
+   and click submit. <br> If it's already in our system you'll go to the page for the moovie. <br> If not you'll go to a page where you can add the moovie in 2 easy steps!
+<form action="{{ url_for('main.result') }}" method="GET" autocomplete="off">
+    <div class='input-group' style="padding-right:75px;padding-left:75px;">
+        <input style="width:50%;padding-left 100px;margin-bottom:10px;text-align: center;border:1px solid #39b249; border-radius: 25px;" id="autocomplete" class='form-control' type='text' name='mootitle' placeholder='                                       Moovie Title (YYYY)'/>
+        <br>
+        <input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" type="submit" name="submit"  border="0" value="Search" alt="Search"/>
+    </div>
+</form>
+{% endblock %}

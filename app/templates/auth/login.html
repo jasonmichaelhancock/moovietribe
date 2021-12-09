@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+<div style="text-align: center">
+<h3><span class="badge badge-pill" style="background-color:#39b249;">Log In</span></h3>
+      <form action="" method="post">
+        {{ form.hidden_tag() }}
+            <div style="text-align: center">
+            <input style="width:50%;padding:10px 0;margin-bottom:10px;text-align: center;border: 1px solid #39b249; border-radius: 25px;" type="text"  name="email" placeholder="email address"/>
+            {% for error in form.email.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <input style="width:50%;padding:10px 0;margin-bottom:10px;text-align: center;border:1px solid #39b249; border-radius: 25px;" type="password"  name="password" placeholder="password"/><br>
+            {% for error in form.password.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" class="btn btn-outline-success" type="submit" name="submit" value="Submit"></div>
+      </form>
+
+    <!--    <div class="col-md-10">
+            {{ wtf.render_form(form) }}
+        </div>-->
+        <h3><span class="badge badge-pill" style="background-color:#39b249;"><a class="btn btn-outline-success"href="{{ url_for('auth.reset_password_request') }}">password reset</a></span> (coming soon)<h3></div>
+{% endblock %}

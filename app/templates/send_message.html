@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+<div style="text-align: center">
+    <h3><span class="badge badge-pill" style="background-color:#39b249;">Compose Message to&nbsp
+      {% set user_link %}
+          <span class="user_popup">
+              <a class="btn btn-outline-success" href="{{ url_for('main.user', id=user.id) }}">{{ user.username }}</a>
+          </span>
+      {% endset %}
+      {{ _('%(username)s', username=user_link) }}
+    </span></h3>
+        <form action="" method="post">
+          {{ form.hidden_tag() }}
+              <div style="text-align: center">
+              <textarea style="width:50%;padding:10px 0;margin-bottom:10px;text-align: center;border: 1px solid #39b249; border-radius: 25px;" type="text"  name="body" placeholder="message"></textarea><br>
+              {% for error in form.body.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+              <input style="padding:5px 20px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" class="btn btn-outline-success" type="submit" name="submit" value="Submit"></div>
+        </form>
+</div>
+{% endblock %}

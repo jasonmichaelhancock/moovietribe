@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+ADD MOOVIE
+Please use our format which includes the year of release like this:
+Doctor Zhivago (1965)
+Also, please use the full title on the IMDB page for your moovie.
+
+<form action="{{ url_for('main.add_details') }}" method="GET" autocomplete="off">
+    <div class='input-group' style="padding-right:75px;padding-left:75px;">
+        <input style="width:50%;padding:10px 0;margin-bottom:10px;text-align: center;border:1px solid #39b249; border-radius: 25px;" id="autocomplete" class='form-control' type='text' name='mootitle' placeholder='Title'/>
+        <br>
+        <input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" type="submit" name="submit"  border="0" value="Search" alt="Search"/>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="{{url_for('static', filename = 'css/bootstrap.css')}}" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
+        <title>Welcome to MoovieTribe!</title>
+        {% block styles %}
+        <style>
+          body {
+            background: url('/static/moo13.png') repeat fixed;
+            -webkit-animation-name: MOVE-BG;
+            -webkit-animation-duration: 420s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            font-family: 'Barlow';
+            font-size: 1.10rem;
+            font-weight: 700;
+          }
+          @-webkit-keyframes MOVE-BG {
+            from {
+              background-position: 3676px 12034px
+            }
+            to {
+              background-position: 0px 0px
+            }
+          }
+          .vertical-center {
+            min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
+            display: flex;
+            align-items: center;
+            padding: 0 20%;
+          }
+          .container {
+             background-color: rgba(0,15,0,.83);
+             color: White;
+             border-radius: 75px;
+             border-top: 13px solid White;
+             border-right: 7px solid White;
+             border-left:  7px solid White;
+             border-bottom:  1px solid White;
+             text-align: center;
+             padding: 5%;
+          }
+          .container2 {
+             background-color: rgba(0,15,0,.83);
+             color: White;
+             border-radius: 75px;
+             border-top: 9px solid White;
+             border-right: 5px solid White;
+             border-left:  5px solid White;
+             border-bottom:  1px solid White;
+             text-align: center;
+             padding: 5%;
+          }
+          </style>
+        {% endblock %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="jumbotron vertical-center">
+            <div class="container">
+              <h3>Welcome to MoovieTribe!</h3>
+              A fun and informative place to chat about moovies and exchange moovie recs.<br>
+              <br><h3>How Does MoovieTribe Work?</h3>
+              When you register you'll complete the MooviEval- rating each of our selection of 100 moovies.  Your ratings on the MooviEval are then compared against those of other
+               MoovieTribe members resulting in a comparative score vs each other member we call Moofinity.  We use  Moofinity calculations to automatically connect you to other members with Moofinity scores above 90%.  This group of like-minded moovie fans becomes your MoovieTribe!<br>
+              <br><h3>The MoovieTribe Pledge</h3>
+              MoovieTribe is a place for fun and information.  We will never "mine" or sell your data...it's just not our thing, period.<br>
+              <br>
+              <div class="container2 container" style="width:50%;background-color: rgba(0,0,55,.25);padding: 10px"><h3><a style="color:White;text-decoration:none" href="{{ url_for('auth.register') }}">{{ _('Find Your MoovieTribe!') }}</a></h3></div><br>
+              <div class="container2 container" style="width:50%;background-color: rgba(0,0,55,.25);padding: 10px"><h3><a style="color:White;text-decoration:none" href="{{ url_for('auth.login') }}">{{ _('Log In') }}</a></h3></div>
+            </div>
+        </div>
+    </body>
+</html>

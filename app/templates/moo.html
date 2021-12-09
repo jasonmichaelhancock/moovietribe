@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block styles %}
+<style>
+    .nbcontainer {
+      margin-top: 265px;
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+    @media (min-width: 900px) {
+      .container-md, .container-sm, .container {
+        max-width: 720px;
+      }
+      .nbcontainer {
+        margin-top: 140px;
+        margin-left: 15%;
+        margin-right: 15%;
+      }
+      .alert {
+        position: fixed;
+        top: 250px;
+        left: 0;
+        width:15%;
+        text-align: center;
+        height: 100px;
+      }
+</style>
+{% endblock %}
+
+{% block app_content %}
+<table class="table table-hover">
+    <tr>
+        <td style="padding-right:10px;width:50%;background-color:rgb(0,15,0);border-radius:75px 0 0 75px;border-bottom:none;">
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators" style="text-align:center;margin-right:0;margin-left:30px;">
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="8"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="9"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="10"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="11"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="12"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="13"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="14"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="15"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="16"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="17"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="18"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="19"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="20"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="21"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="22"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="23"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="24"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="25"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="26"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="27"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="28"></button>
+                  <button type="button" data-bs-target="#demo" data-bs-slide-to="29"></button>
+                </div>
+
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner" style="text-align:center;padding-left:75px;">
+                    {% set filmnum = 1104 %}
+                    {% set filmnum = (filmnum | string) %}
+                    <div class="carousel-item active">
+                      <a href="{{ url_for('main.resultid', id=filmnum)}}">
+                      <img style="height:400px;" src="{{ url_for('static', filename='posters/' + filmnum + '.jpg') }}"/></a>
+                      <div class="carousel-caption">
+                        <h3></h3>
+                        <p></p>
+                      </div>
+                    </div>
+                    {% set current_list = [1106,1110,1105,1095,1096,1112,1111,1109,1108,1107,1103,1102,1101,1100,1099,1098,1097,1065,1066,1067,1068,1071,1072,1082,1086,1088,1089,1091,1093] %}
+                    {% for moovie in current_list %}
+                    {% set filmnum = moovie %}
+                    {% set filmnum = (filmnum | string) %}
+                    <div class="carousel-item">
+                      <a href="{{ url_for('main.resultid', id=filmnum)}}">
+                      <img style="height:400px;" src="{{ url_for('static', filename='posters/' + filmnum + '.jpg') }}"/></a>
+                      <div class="carousel-caption">
+                        <h3></h3>
+                        <p></p>
+                      </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </td>
+        <td style="background-color:#bfd9b7;border-radius:0 75px 75px 0;border-bottom:none;">
+            <div style="text-align:center">
+              <h3 style="padding-top:10px;"><span class="badge badge-pill" style="background-color:#39b249;">MooReview</span> </h3>
+              <form action="" method="post" autocomplete="off">
+                {{ form.hidden_tag() }}
+                <div class='input-group' style="padding-right:10px;padding-left:10px">
+                  <input id="autocomplete" class='form-control' type='text' name='mootitle' placeholder="Title">
+                </div>
+                <div style="padding-right:10px;padding-left:10px;padding-top:5px;padding-bottom:7px;">
+                  <textarea style="border: 1px solid #198754;" class='form-control' name="post" rows="3" placeholder="RATE a moovie by entering title above and selecting a rating below. MooREVIEW it by adding any length review of it here."></textarea>
+                </div>
+                <div>
+                  {% for subfield in form.rating %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:35px;padding-right:2px;padding-left:2px;">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                  <br>
+                  <input style="padding-top:5px;height:125px" type="image" name="submit" value="submit1" src="{{ url_for('static', filename = 'spoken.png') }}" border="0" alt="Submit"/>
+                </div>
+                </form>
+              </div>
+        </td>
+    </tr>
+</table>
+<div style="text-align: center;padding-top:10px">
+<h3><span class="badge badge-pill" style="background-color:#39b249;">&nbsp&nbsp&nbsp&nbspLatest Posts From Your MoovieTribe&nbsp&nbsp&nbsp&nbsp</span></h3></div>
+{% for post in posts %}
+    {% if post.body %}
+    {% include '_post.html' %}
+  {% endif %}
+{% endfor %}
+<nav aria-label="...">
+    <ul style="list-style-type:none" class="pager">
+        <li {% if request.args.get('page') == '1' %} style="visibility:hidden" {% endif %} {% if request.args.get('page') == None %} style="visibility:hidden" {% endif %} class="previous">
+            <a class="btn btn-outline-success" href="{{ prev_url or '#' }}">
+                <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
+            </a>
+        </li>
+        <li class="next{% if not next_url %} disabled{% endif %}">
+            <a class="btn btn-outline-success" href="{{ next_url or '#' }}">
+                {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}

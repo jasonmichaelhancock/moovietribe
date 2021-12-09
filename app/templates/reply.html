@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <table class="table table-hover">
+        <tr>
+          <td style="text-align:center;border-style:none;" width="100px">
+              <div class="ppicparent">
+                    <img style="width:100px;" class="image1" src="{{url_for('static', filename='ppicborder.png')}}">
+                    {% set userid1 = 'ppics/' + (message.author.id | string) + '.jpg' %}{% set userid2 = 'ppics/' + (message.author.id | string) + '.png' %}
+                    {% if message.author.ppic_exists1() %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid1) }}"/>
+                    {% elif message.author.ppic_exists2() %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid2) }}"/>
+                    {% else %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename='ppics/cowprofile.jpg') }}"/>
+                    {% endif %}
+              </td>
+              <td style="text-align:center;border-style:none;margin-left:10px;" width="100px">
+              <div class="ppicparent">
+                    <img style="width:100px;" class="image1" src="{{url_for('static', filename='ppicborder.png')}}">
+                    {% set userid1 = 'ppics/' + (message.recipient.id | string) + '.jpg' %}{% set userid2 = 'ppics/' + (message.recipient.id | string) + '.png' %}
+                    {% if message.recipient.ppic_exists1() %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid1) }}"/>
+                    {% elif message.recipient.ppic_exists2() %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid2) }}"/>
+                    {% else %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename='ppics/cowprofile.jpg') }}"/>
+                    {% endif %}
+              </td>
+              <td style="text-align:left;border-style:none;padding-top: 10px;padding-left: 10%;vertical-align:middle;border-radius:0 50px 50px 0;"><h3><span class="badge badge-pill" style="background-color:#39b249;">&nbsp&nbsp&nbspconversation with {{ message.author.username }}&nbsp&nbsp&nbsp</span></h3></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="padding-top: 10px;border-radius:0 50px 50px 0">
+                <form action="" method="POST" autocomplete="off" style="display:flex">
+                    {{ form.hidden_tag() }}
+                    <textarea style="padding:5px 20px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;width:80%;" name="body" rows="1" placeholder="Reply"></textarea>
+                    <input style="padding:5px 20px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;width:20%;" class="btn btn-outline-success" type="submit" name="submit" value="Submit">
+                </form>
+            </td>
+        </tr>
+        {% for post in messages %}
+        <tr>
+            <td colspan="3" style="padding: 10px 10px;border-radius:0 50px 50px 0">
+                {% set user_link %}
+                    {% if post.author.id == current_user.id %}
+                    <span class="user_popup">
+                        <a class="btn btn-outline-success" href="{{ url_for('main.user', id=post.author.id) }}">You</a>
+                    </span>
+                    {% else %}
+                    <span class="user_popup">
+                        <a class="btn btn-outline-success" href="{{ url_for('main.user', id=post.author.id) }}">{{ post.author.username }}</a>
+                    </span>
+                    {% endif %}
+                {% endset %}
+                {{ _('%(username)s', username=user_link) }}
+                <span id="post{{ post.id }}">
+                &nbsp
+                  <span style="font-weight:bold;"{{ _('%(when)s:', when=moment(post.timestamp).fromNow()) }}</span>
+                  {% if post.body %}{{ post.body }}{% endif %}</span>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <nav aria-label="...">
+        <ul style="list-style-type:none" class="pager">
+            <li {% if request.args.get('page') == '1' %} style="visibility:hidden" {% endif %} {% if request.args.get('page') == None %} style="visibility:hidden" {% endif %} class="previous">
+                <a class="btn btn-outline-success" href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a class="btn btn-outline-success" href="{{ next_url or '#' }}">
+                    {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}

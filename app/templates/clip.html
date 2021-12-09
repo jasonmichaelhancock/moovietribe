@@ -1,0 +1,61 @@
+post = Post.query.filter_by(user_id=current_user.id, moovie_id=1).first()
+    if post is not None:
+        post.rating = form.film1.data
+    else:
+        post = Post(author=current_user, moovie_id=1, rating=int(form.film1.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=2).first()
+    if post is not None:
+        post.rating = form.film2.data
+    else:
+        post = Post(author=current_user, moovie_id=2, rating=int(form.film2.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=3).first()
+    if post is not None:
+        post.rating = form.film3.data
+    else:
+        post = Post(author=current_user, moovie_id=3, rating=int(form.film3.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=4).first()
+    if post is not None:
+        post.rating = form.film4.data
+    else:
+        post = Post(author=current_user, moovie_id=4, rating=int(form.film4.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=5).first()
+    if post is not None:
+        post.rating = form.film5.data
+    else:
+        post = Post(author=current_user, moovie_id=5, rating=int(form.film5.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=6).first()
+    if post is not None:
+        post.rating = form.film6.data
+    else:
+        post = Post(author=current_user, moovie_id=6, rating=int(form.film6.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=7).first()
+    if post is not None:
+        post.rating = form.film7.data
+    else:
+        post = Post(author=current_user, moovie_id=7, rating=int(form.film7.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=8).first()
+    if post is not None:
+        post.rating = form.film8.data
+    else:
+        post = Post(author=current_user, moovie_id=8, rating=int(form.film8.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=9).first()
+    if post is not None:
+        post.rating = form.film9.data
+    else:
+        post = Post(author=current_user, moovie_id=9, rating=int(form.film9.data))
+        db.session.add(post)
+    post = Post.query.filter_by(user_id=current_user.id, moovie_id=10).first()
+    if post is not None:
+        post.rating = form.film10.data
+    else:
+        post = Post(author=current_user, moovie_id=10, rating=int(form.film10.data))
+        db.session.add(post)
+    

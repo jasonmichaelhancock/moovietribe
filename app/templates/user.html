@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <table class="table table-hover">
+        <tr>
+            <td colspan="2" style="border-radius:75px 75px 0 0;padding-left:40%;padding-top:10px;border-style:none;">
+            <h3><span class="badge badge-pill" style="background-color:#39b249;">{{ user.username }}</span></h3>
+
+            <td>
+        </tr>
+        <tr>
+            <td  style="width:40%;text-align:right;padding-right:20px;padding-top:10px;border-radius:0 0 0 75px;border-style:none;">
+                {% set userid1 = 'ppics/' + (user.id | string) + '.jpg' %}{% set userid2 = 'ppics/' + (user.id | string) + '.png' %}
+                {% if user.ppic_exists1() %}
+                <img style="width:256px;border-radius:40px 0 0 40px;" src="{{ url_for('static', filename=userid1) }}"/>
+                {% elif user.ppic_exists2() %}
+                <img style="width:256px;border-radius:40px 0 0 40px;" src="{{ url_for('static', filename=userid2) }}"/>
+                {% else %}
+                <img style="width:256px;border-radius:40px 0 0 40px;" src="{{ url_for('static', filename='ppics/cowprofile.jpg') }}"/>
+                {% endif %}
+                <br>
+                {% if user.city %}<h7>{{ user.city }}, {% if user.state %}{{ user.state }}{% endif %}</h7><br>{% endif %}
+                <h7>{{ _('last MooVisit: ') }}
+                {{ moment(user.last_seen).format('LLL') }}</h7>
+                <h5>
+                  {% set number = user.moofinity(current_user)[:-1] | int %}
+                  {% if number >= 90 %}
+                  <span class="badge badge-pill" style="background-color:#39b249;" width="70px">Moofinity&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">
+                      {{ user.moofinity(current_user) }}
+                  </span></span>
+                  {% elif number >= 80 and number < 90 %}
+                  <span class="badge badge-pill" style="background-color:#4081fa;" width="70px">Moofinity&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">
+                      {{ user.moofinity(current_user) }}
+                  </span></span>
+                  {% elif number >= 50 and number < 80 %}
+                  <span class="badge badge-pill" style="background-color:#f1841f;" width="70px">Moofinity&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">
+                      {{ user.moofinity(current_user) }}
+                  </span></span>
+                  {% elif number < 50 %}
+                  <span class="badge badge-pill" style="background-color:#e9242d;" width="70px">Moofinity&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">
+                      {{ user.moofinity(current_user) }}
+                  </span></span>
+                  {% endif %}
+                </h5>
+            <td style="border-radius:0 0 75px 0 ;padding-top:10px;border-style:none;">
+                {% if user.about_me %}<h7><div style="background-color:#bfd9b7;text-align:center;border-radius:0 25px 25px 0;padding:8px 8px 8px 8px;margin-bottom:8px;">{{ user.about_me }}</div></h7>{% endif %}
+
+                {% if user == current_user %}
+                <h7><b>Your MoovieTribe:</b>
+                    <br>
+                    Moovie-Mates: {{ _(' %(count)d followers', count=user.followers.count()) }}, {{ _(' following %(count)d ', count=user.followed.count()) }}
+                    <br>
+                    Friends: {{ _(' %(count)d followers', count=user.followers2.count()) }}, {{ _(' following %(count)d ', count=user.followed2.count()) }}
+                </h7>
+                <br>
+                {% if user.faves %}<h7><b>Your Fave-Five:</b><br> {{ user.faves }}</h7><br>{% endif %}
+                <br>
+                <p><a class="btn btn-outline-success" href="{{ url_for('main.edit_profile') }}">Edit Your Profile</a></p>
+                <p><a class="btn btn-outline-success" href="{{ url_for('main.upload') }}">Upload Profile Pic</a></p>
+
+                {% elif not current_user.is_following(user) and not current_user.is_following2(user) %}
+                <h7><b>{{ _('%(x)s', x=user.username) }}'s MoovieTribe:</b>
+                    <br>
+                    Moovie-Mates: {{ _(' %(count)d followers', count=user.followers.count()) }}, {{ _(' following %(count)d ', count=user.followed.count()) }}
+                    <br>
+                    Friends: {{ _(' %(count)d followers', count=user.followers2.count()) }}, {{ _(' following %(count)d ', count=user.followed2.count()) }}
+                </h7>
+                <br>
+                {% if user.faves %}<h7><b>{{ _('%(x)s', x=user.username) }}'s Fave-Five:</b><br> {{ user.faves }}</h7><br>{% endif %}
+                <br>
+                <p>
+                    <form action="{{ url_for('main.follow2', id=user.id) }}" method="post">
+                        {{ form.hidden_tag() }}
+                        {{ form.submit(value=_('Follow'), class="btn btn-outline-success") }}
+                    </form>
+                </p>
+
+                {% else %}
+                <h7><b>{{ _('%(x)s', x=user.username) }}'s MoovieTribe:</b>
+                    <br>
+                    Moovie-Mates: {{ _(' %(count)d followers', count=user.followers.count()) }}, {{ _(' following %(count)d ', count=user.followed.count()) }}
+                    <br>
+                    Friends: {{ _(' %(count)d followers', count=user.followers2.count()) }}, {{ _(' following %(count)d ', count=user.followed2.count()) }}
+                </h7>
+                <br>
+                {% if user.faves %}<h7><b>{{ _('%(x)s', x=user.username) }}'s Fave-Five:</b><br> {{ user.faves }}</h7><br>{% endif %}
+                <br>
+                <p><a class="btn btn-outline-success" href="{{ url_for('main.send_message', recipient=user.id) }}">{{ _('Send private message') }}</a></p>
+                <p><form action="{{ url_for('main.unfollow', id=user.id) }}" method="post">
+                        {{ form.hidden_tag() }}
+                        {{ form.submit(value=_('Unfollow'), class="btn btn-outline-success") }}
+                    </form>
+                </p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+
+    {% for post in posts %}
+    {% if post.body %}
+        {% include '_post.html' %}
+    {% endif %}
+    {% endfor %}
+    <nav aria-label="...">
+        <ul style="list-style-type:none" class="pager">
+            <li {% if request.args.get('page') == '1' %} style="visibility:hidden" {% endif %} {% if request.args.get('page') == None %} style="visibility:hidden" {% endif %} class="previous">
+                <a class="btn btn-outline-success" href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a class="btn btn-outline-success" href="{{ next_url or '#' }}">
+                    {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}

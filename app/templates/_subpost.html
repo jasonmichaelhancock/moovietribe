@@ -1,0 +1,57 @@
+    <table class="table table-hover">
+        <tr>
+            <td style="text-align:center" width="100px">
+              <div class="ppicparent">
+                    <img style="width:100px;" class="image1" src="{{url_for('static', filename='ppicborder.png')}}">
+                    {% set userid1 = 'ppics/' + (subpost.author.id | string) + '.jpg' %}{% set userid2 = 'ppics/' + (subpost.author.id | string) + '.png' %}
+                    {% if subpost.author.ppic_exists1() %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid1) }}"/>
+                    {% elif subpost.author.ppic_exists2() %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid2) }}"/>
+                    {% else %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename='ppics/cowprofile.jpg') }}"/>
+                    {% endif %}<br>
+
+                    {% set number = subpost.author.moofinity(current_user)[:-1] | int %}
+                    {% if number >= 90 %}
+                    <span class="badge badge-pill" style="background-color:#39b249;" width="76px">
+                        {{ subpost.author.moofinity(current_user) }}
+                    </span>
+                    {% elif number >= 80 and number < 90 %}
+                    <span class="badge badge-pill" style="background-color:#4081fa;" width="70px">
+                        {{ subpost.author.moofinity(current_user) }}
+                    </span>
+                    {% elif number >= 50 and number < 80 %}
+                    <span class="badge badge-pill" style="background-color:#f1841f;" width="70px">
+                        {{ post.author.moofinity(current_user) }}
+                    </span>
+                    {% elif number < 50 %}
+                    <span class="badge badge-pill" style="background-color:#e9242d;" width="70px">
+                        {{ subpost.author.moofinity(current_user) }}
+                    </span>
+                    {% endif %}
+            </td>
+            <td style="padding: 0px 10px; border-radius: 0 50px 0 0">
+                {% set user_link %}
+                    <span class="user_popup">
+                        <a class="btn btn-outline-success" href="{{ url_for('main.user', id=post.author.id) }}">{{ subpost.author.username }}</a>
+                    </span>
+                {% endset %}
+                {{ _('%(username)s', username=user_link) }}
+                <br>
+                <span style="font-weight:bold;"{{ _('%(when)s:', when=moment(subpost.timestamp).fromNow()) }}</span>
+                <span id="post{{ post.id }}">{% if subpost.body %}{{ subpost.body }}{% endif %}</span>
+                  <!--
+                {% if post.language and post.language != g.locale %}
+                <br><br>
+                <span id="translation{{ post.id }}">
+                    <a href="javascript:translate(
+                                '#post{{ post.id }}',
+                                '#translation{{ post.id }}',
+                                '{{ post.language }}',
+                                '{{ g.locale }}');">{{ _('Translate') }}</a>
+                </span>
+                {% endif %}-->
+            </td>
+        </tr>
+    </table>

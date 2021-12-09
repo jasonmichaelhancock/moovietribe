@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <form action="" method="post">
+      {{ form.hidden_tag() }}
+
+          <table class="table table-hover">
+              <tr>
+                <th style="text-align:center">{{ form.film1.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film2.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film3.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film4.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film5.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film6.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film7.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film8.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film9.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th style="text-align:center">{{ form.film10.label }}</th><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td></td></tr>
+
+              <tr>
+                <td><a href="https://www.imdb.com/title/tt0050083/", target="_blank"><img src="{{ url_for('static', filename = 'film1.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film1 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt0062622/", target="_blank"><img src="{{ url_for('static', filename = 'film2.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film2 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt0289043/", target="_blank"><img src="{{ url_for('static', filename = 'film3.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film3 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt1517451/", target="_blank"><img src="{{ url_for('static', filename = 'film4.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film4 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt0268126/", target="_blank"><img src="{{ url_for('static', filename = 'film5.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film5 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt0042192/", target="_blank"><img src="{{ url_for('static', filename = 'film6.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film6 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt0078754/", target="_blank"><img src="{{ url_for('static', filename = 'film7.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film7 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt0245712/", target="_blank"><img src="{{ url_for('static', filename = 'film8.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film8 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt0082010/", target="_blank"><img src="{{ url_for('static', filename = 'film9.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film9 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+
+                <td><a href="https://www.imdb.com/title/tt0075686/", target="_blank"><img src="{{ url_for('static', filename = 'film10.jpg') }}" height="400px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film10 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:40px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td><td style="vertical-align:middle"><input type="image" name="submit" src="{{ url_for('static', filename = 'next.png') }}" border="0" alt="Submit"/></td></tr>
+
+              <tr>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film1 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film1.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film2 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film2.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film3 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film3.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film4 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film4.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film5 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film5.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film6 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film6.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film7 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film7.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film8 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film8.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film9 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film9.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+
+                <th style="text-align:center;vertical-align:middle;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center; vertical-align:middle;">
+                    {% for subfield in form.film10 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:40px;">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film10.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td><td></td>
+            </table>
+      </form>
+      <div class="centered">
+        <h1>
+          <span class="line">
+          <a href="{{ url_for('main.mooreview', id=current_user.id) }}" class="btn btn-primary btn-lg active" role="button">part&nbsp &nbsp1</a>
+          <a href="{{ url_for('main.mooreview2', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part&nbsp&nbsp 2</a>
+          <a href="{{ url_for('main.mooreview3', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part&nbsp&nbsp 3</a></span>
+          <span class="line">
+          <a href="{{ url_for('main.mooreview4', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part&nbsp &nbsp4</a>
+          <a href="{{ url_for('main.mooreview5', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part&nbsp&nbsp 5</a></span><br>
+          <span class="line">
+          <a href="{{ url_for('main.mooreview6', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part&nbsp&nbsp 6</a>
+          <a href="{{ url_for('main.mooreview7', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part&nbsp&nbsp 7</a>
+          <a href="{{ url_for('main.mooreview8', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part&nbsp&nbsp 8</a></span>
+          <span class="line">
+          <a href="{{ url_for('main.mooreview9', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part&nbsp&nbsp 9</a>
+          <a href="{{ url_for('main.mooreview10', id=current_user.id) }}" class="btn btn-primary btn-lg" role="button">part 10</a></span>
+        </h1>
+      </div>
+{% endblock %}

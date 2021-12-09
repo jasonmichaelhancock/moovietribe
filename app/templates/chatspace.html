@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+    <table class="table table-hover">
+        <tr>
+            <th colspan="3" style="text-align:center;border-style:none;"><h3><a href="https://www.imdb.com/title/{{ moovie.imdb }}/", target="_blank"><span class="badge badge-pill" style="background-color:#39b249;">&nbsp&nbsp&nbsp&nbsp{{ post.mootitle }}&nbsp&nbsp&nbsp&nbsp</span></a>&nbsp&nbsp&nbsp&nbsp<span class="badge badge-pill" style="background-color:#4081fa;">&nbsp&nbsp&nbsp&nbspchatspace&nbsp&nbsp&nbsp&nbsp</span></h3></th>
+        </tr>
+        <tr>
+            <td style="text-align:right;padding-right:10px;padding-top:0;border-bottom:none;border-radius:75px 0 75px 75px;" rowspan="3">
+              {% set moovieid1 = 'posters/' + (moovie.id | string) + '.jpg' %}{% set moovieid2 = 'posters/' + (moovie.id | string) + '.png' %}
+                <a href="https://www.imdb.com/title/{{ moovie.imdb }}/", target="_blank">
+                {% if moovie.poster_exists1() %}
+                <img style="width:256px;border-radius:50px 0 0 50px;" src="{{ url_for('static', filename=moovieid1) }}"/>
+                {% elif moovie.poster_exists2() %}
+                <img style="width:256px;border-radius:50px 0 0 50px;" src="{{ url_for('static', filename=moovieid2) }}"/>
+                {% else %}
+                <img style="width:256px;border-radius:50px 0 0 50px;" src="{{ url_for('static', filename='posterimg.jpg') }}"/>
+                {% endif %}</a>
+                <br>
+                {% if ratings %}
+                <span class="badge badge-pill" style="background-color:#696969;">
+                Moofinity-Mate Ratings</span><br>
+                {% for rating in ratings %}
+                      {% if rating == 12 %}<span class="badge badge-pill" style="background-color:#39b249;">10</span>{% endif %}
+                      {% if rating == 11 %}<span class="badge badge-pill" style="background-color:#39b249;">9</span>{% endif %}
+                      {% if rating == 10 %}<span class="badge badge-pill" style="background-color:#4081fa;">8</span>{% endif %}
+                      {% if rating == 9 %}<span class="badge badge-pill" style="background-color:#4081fa;">7</span>{% endif %}
+                      {% if rating == 8 %}<span class="badge badge-pill" style="background-color:#f1841f;">6</span>{% endif %}
+                      {% if rating == 6 %}<span class="badge badge-pill" style="background-color:#f1841f;">5</span>{% endif %}
+                      {% if rating == 5 %}<span class="badge badge-pill" style="background-color:#e9242d;">4</span>{% endif %}
+                      {% if rating == 4 %}<span class="badge badge-pill" style="background-color:#e9242d;">3</span>{% endif %}
+                      {% if rating == 2 %}<span class="badge badge-pill" style="background-color:#e9242d;">2</span>{% endif %}
+                      {% if rating == 1 %}<span class="badge badge-pill" style="background-color:#e9242d;">1</span>{% endif %}
+                {% endfor %}
+                <br>{% endif %}
+                {% if ratings2 %}
+                <span class="badge badge-pill" style="background-color:#696969;">
+                Friend Ratings</span><br>
+                {% for rating in ratings2 %}
+                    {% if rating == 12 %}<span class="badge badge-pill" style="background-color:#39b249;">10</span>{% endif %}
+                    {% if rating == 11 %}<span class="badge badge-pill" style="background-color:#39b249;">9</span>{% endif %}
+                    {% if rating == 10 %}<span class="badge badge-pill" style="background-color:#4081fa;">8</span>{% endif %}
+                    {% if rating == 9 %}<span class="badge badge-pill" style="background-color:#4081fa;">7</span>{% endif %}
+                    {% if rating == 8 %}<span class="badge badge-pill" style="background-color:#f1841f;">6</span>{% endif %}
+                    {% if rating == 6 %}<span class="badge badge-pill" style="background-color:#f1841f;">5</span>{% endif %}
+                    {% if rating == 5 %}<span class="badge badge-pill" style="background-color:#e9242d;">4</span>{% endif %}
+                    {% if rating == 4 %}<span class="badge badge-pill" style="background-color:#e9242d;">3</span>{% endif %}
+                    {% if rating == 2 %}<span class="badge badge-pill" style="background-color:#e9242d;">2</span>{% endif %}
+                    {% if rating == 1 %}<span class="badge badge-pill" style="background-color:#e9242d;">1</span>{% endif %}
+                {% endfor %}
+                {% endif %}
+                <br>
+                <nav aria-label="...">
+                    <ul style="list-style-type:none" class="pager">
+                        <li {% if request.args.get('page') == '1' %} style="visibility:hidden" {% endif %} {% if request.args.get('page') == None %} style="visibility:hidden" {% endif %} class="previous">
+                            <a class="btn btn-outline-success" href="{{ prev_url or '#' }}">
+                                <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
+                            </a>
+                        </li>
+                        <li class="next{% if not next_url %} disabled{% endif %}">
+                            <a class="btn btn-outline-success" href="{{ next_url or '#' }}">
+                                {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+              </td>
+              <td style="padding-top: 10px;text-align:center;background-color:#bfd9b7" width="100px">
+                    <div class="ppicparent">
+                        <img style="width:100px;" class="image1" src="{{url_for('static', filename='ppicborder.png')}}">
+                        {% set userid1 = 'ppics/' + (post.author.id | string) + '.jpg' %}{% set userid2 = 'ppics/' + (post.author.id | string) + '.png' %}
+                        {% if post.author.ppic_exists1() %}
+                        <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid1) }}"/>
+                        {% elif post.author.ppic_exists2() %}
+                        <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid2) }}"/>
+                        {% else %}
+                        <img style="width:76px;" class="image2" src="{{ url_for('static', filename='ppics/cowprofile.jpg') }}"/>
+                        {% endif %}<br>
+                        {% set number = post.author.moofinity(current_user)[:-1] | int %}
+                        {% if number >= 90 %}
+                        <span class="badge badge-pill" style="background-color:#39b249;" width="76px">
+                            {{ post.author.moofinity(current_user) }}
+                        </span>
+                        {% elif number >= 80 and number < 90 %}
+                        <span class="badge badge-pill" style="background-color:#4081fa;" width="70px">
+                            {{ post.author.moofinity(current_user) }}
+                        </span>
+                        {% elif number >= 50 and number < 80 %}
+                        <span class="badge badge-pill" style="background-color:#f1841f;" width="70px">
+                            {{ post.author.moofinity(current_user) }}
+                        </span>
+                        {% elif number < 50 %}
+                        <span class="badge badge-pill" style="background-color:#e9242d;" width="70px">
+                            {{ post.author.moofinity(current_user) }}
+                        </span>
+                        {% endif %}
+                </td>
+                <td style="padding: 10px 0 10px 0;background-color:#bfd9b7;border-radius:0 50px 50px 0;padding: 10px 0 0 10px;">
+                        {% set user_link %}
+                            <span class="user_popup">
+                                <a class="btn btn-outline-success" href="{{ url_for('main.user', id=post.author.id) }}">{{ post.author.username }}</a>            </span>
+                        {% endset %}
+                        {{ _('%(username)s', username=user_link) }}
+                        <span id="post{{ post.id }}">
+                          {% set mootitlevar = post.mootitle %}
+                          {% if post.mootitle %}<a class="btn btn-outline-success" href="{{ url_for('main.result', mootitle=mootitlevar)}}">{{ post.mootitle }}</a>{% endif %}
+                          {% if post.rating %}
+                              {% if post.rating == 12 %}<span class="badge badge-pill" style="background-color:#39b249;color:#eeeeee;">Mooooooo!!!!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">10</span></span>{% endif %}
+                              {% if post.rating == 11 %}<span class="badge badge-pill" style="background-color:#39b249;color:#eeeeee;">Moooooo!!!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">9</span></span>{% endif %}
+                              {% if post.rating == 10 %}<span class="badge badge-pill" style="background-color:#4081fa;color:#eeeeee;">Mooooo!!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">8</span></span>{% endif %}
+                              {% if post.rating == 9 %}<span class="badge badge-pill" style="background-color:#4081fa;color:#eeeeee;">Moooo!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">7</span></span>{% endif %}
+                              {% if post.rating == 8 %}<span class="badge badge-pill" style="background-color:#f1841f;color:#eeeeee;">Mooo!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">6</span></span>{% endif %}
+                              {% if post.rating == 6 %}<span class="badge badge-pill" style="background-color:#f1841f;color:#eeeeee;">Moo&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">5</span></span>{% endif %}
+                              {% if post.rating == 5 %}<span class="badge badge-pill" style="background-color:#e9242d;color:#eeeeee;">Boo&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">4</span></span>{% endif %}
+                              {% if post.rating == 4 %}<span class="badge badge-pill" style="background-color:#e9242d;color:#eeeeee;">Booo!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">3</span></span>{% endif %}
+                              {% if post.rating == 2 %}<span class="badge badge-pill" style="background-color:#e9242d;color:#eeeeee;">Boooo!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">2</span></span>{% endif %}
+                              {% if post.rating == 1 %}<span class="badge badge-pill" style="background-color:#e9242d;color:#eeeeee;">Booooo!!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">1</span></span>{% endif %}
+                              <br>
+                          {% endif %}
+                          <span style="font-weight:bold;"{{ _('%(when)s:', when=moment(post.timestamp).fromNow()) }}</span>
+                          {% if post.body %}{{ post.body }}{% endif %}</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td rowspan="2" style="border-radius:0 0 0 75px;"></td>
+                  <td style="border-radius:0 75px 0 0;">
+                  {% for subpost in subposts %}
+                    {% if subpost.originalpost_id == post.id %}
+
+                    <table class="table table-hover">
+                        <tr>
+                            <td style="text-align:center;padding-top:10px;" width="100px">
+                              <div class="ppicparent">
+                                    <img style="width:100px;" class="image1" src="{{url_for('static', filename='ppicborder.png')}}">
+                                    {% set userid1 = 'ppics/' + (subpost.author.id | string) + '.jpg' %}{% set userid2 = 'ppics/' + (subpost.author.id | string) + '.png' %}
+                                    {% if subpost.author.ppic_exists1() %}
+                                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid1) }}"/>
+                                    {% elif subpost.author.ppic_exists2() %}
+                                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid2) }}"/>
+                                    {% else %}
+                                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename='ppics/cowprofile.jpg') }}"/>
+                                    {% endif %}<br>
+
+                                    {% set number = subpost.author.moofinity(current_user)[:-1] | int %}
+                                    {% if number >= 90 %}
+                                    <span class="badge badge-pill" style="background-color:#39b249;" width="76px">
+                                        {{ subpost.author.moofinity(current_user) }}
+                                    </span>
+                                    {% elif number >= 80 and number < 90 %}
+                                    <span class="badge badge-pill" style="background-color:#4081fa;" width="70px">
+                                        {{ subpost.author.moofinity(current_user) }}
+                                    </span>
+                                    {% elif number >= 50 and number < 80 %}
+                                    <span class="badge badge-pill" style="background-color:#f1841f;" width="70px">
+                                        {{ post.author.moofinity(current_user) }}
+                                    </span>
+                                    {% elif number < 50 %}
+                                    <span class="badge badge-pill" style="background-color:#e9242d;" width="70px">
+                                        {{ subpost.author.moofinity(current_user) }}
+                                    </span>
+                                    {% endif %}
+                            </td>
+                            <td style="padding: 10px 0 0 10px;border-radius:0 75px 0 0;">
+                                {% set user_link %}
+                                    <span class="user_popup">
+                                        <a class="btn btn-outline-success" href="{{ url_for('main.user', id=post.author.id) }}">{{ subpost.author.username }}</a>
+                                    </span>
+                                {% endset %}
+                                {{ _('%(username)s', username=user_link) }}
+                                <br>
+                                <span style="font-weight:bold;"{{ _('%(when)s:', when=moment(subpost.timestamp).fromNow()) }}</span>
+                                <span id="post{{ post.id }}">{% if subpost.body %}{{ subpost.body }}{% endif %}</span>
+                            </td>
+                        </tr>
+                    </table>
+                    {% endif %}
+                  {% endfor %}
+                  </td>
+                  <tr>
+                  <td>
+                      <form action="" method="POST" autocomplete="off" style="display:flex">
+                        {{ form.hidden_tag() }}
+                        <input type="hidden" name="originalpost_id" value="{{ post.id }}">
+                          <textarea style="border: 1px solid #198754;width:70%;resize:none;" name="subpost" rows="1" placeholder="Chime In"></textarea>
+                        <input style="width:30%;" type="submit" name="submit" value="Submit">
+                      </form>
+                  </td>
+                  </tr>
+          </table>
+{% endblock %}

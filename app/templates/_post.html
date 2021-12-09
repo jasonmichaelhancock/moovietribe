@@ -1,0 +1,79 @@
+    <table class="table table-hover" style="padding-top: 10px">
+        <tr>
+            <td style="text-align:center;padding-top: 10px;" width="100px">
+              <div class="ppicparent">
+                    <img style="width:100px;" class="image1" src="{{url_for('static', filename='ppicborder.png')}}">
+                    {% set userid1 = 'ppics/' + (post.author.id | string) + '.jpg' %}{% set userid2 = 'ppics/' + (post.author.id | string) + '.png' %}
+                    {% if post.author.ppic_exists1() %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid1) }}"/>
+                    {% elif post.author.ppic_exists2() %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename=userid2) }}"/>
+                    {% else %}
+                    <img style="width:76px;" class="image2" src="{{ url_for('static', filename='ppics/cowprofile.jpg') }}"/>
+                    {% endif %}<br>
+
+                    {% set number = post.author.moofinity(current_user)[:-1] | int %}
+                    {% if number >= 90 %}
+                    <span class="badge badge-pill" style="background-color:#39b249;" width="76px">
+                        {{ post.author.moofinity(current_user) }}
+                    </span>
+                    {% elif number >= 80 and number < 90 %}
+                    <span class="badge badge-pill" style="background-color:#4081fa;" width="70px">
+                        {{ post.author.moofinity(current_user) }}
+                    </span>
+                    {% elif number >= 50 and number < 80 %}
+                    <span class="badge badge-pill" style="background-color:#f1841f;" width="70px">
+                        {{ post.author.moofinity(current_user) }}
+                    </span>
+                    {% elif number < 50 %}
+                    <span class="badge badge-pill" style="background-color:#e9242d;" width="70px">
+                        {{ post.author.moofinity(current_user) }}
+                    </span>
+                    {% endif %}
+            </td>
+            <td style="padding: 10px 10px; border-radius:0 50px 50px 0;">
+                {% set user_link %}
+                    <span class="user_popup">
+                        <a class="btn btn-outline-success" href="{{ url_for('main.user', id=post.author.id) }}">{{ post.author.username }}</a>
+                    </span>
+                {% endset %}
+                {{ _('%(username)s', username=user_link) }}
+                <span id="post{{ post.id }}">
+                  {% set mootitlevar = post.mootitle %}
+                  {% if post.mootitle %}<a class="btn btn-outline-success" href="{{ url_for('main.result', mootitle=mootitlevar)}}">{{ post.mootitle }}</a>{% endif %}
+                  {% if post.mootitle %}<a class="btn btn-outline-success" href="{{ url_for('main.chatspace', id=post.id)}}">chatspace{% if post.chat_count != 0 %}{% if post.chat_count %}({{ post.chat_count }} {% if post.chat_count == 1 %}reply{% else %}replies{% endif %}){% endif %}{% endif %}</a>{% endif %}
+                  {% if post.rating %}
+                      {% if post.rating == 12 %}<span class="badge badge-pill" style="background-color:#39b249;color:#eeeeee;">Mooooooo!!!!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">10</span></span>{% endif %}
+                      {% if post.rating == 11 %}<span class="badge badge-pill" style="background-color:#39b249;color:#eeeeee;">Moooooo!!!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">9</span></span>{% endif %}
+                      {% if post.rating == 10 %}<span class="badge badge-pill" style="background-color:#4081fa;color:#eeeeee;">Mooooo!!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">8</span></span>{% endif %}
+                      {% if post.rating == 9 %}<span class="badge badge-pill" style="background-color:#4081fa;color:#eeeeee;">Moooo!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">7</span></span>{% endif %}
+                      {% if post.rating == 8 %}<span class="badge badge-pill" style="background-color:#f1841f;color:#eeeeee;">Mooo!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">6</span></span>{% endif %}
+                      {% if post.rating == 6 %}<span class="badge badge-pill" style="background-color:#f1841f;color:#eeeeee;">Moo&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">5</span></span>{% endif %}
+                      {% if post.rating == 5 %}<span class="badge badge-pill" style="background-color:#e9242d;color:#eeeeee;">Boo&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">4</span></span>{% endif %}
+                      {% if post.rating == 4 %}<span class="badge badge-pill" style="background-color:#e9242d;color:#eeeeee;">Booo!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">3</span></span>{% endif %}
+                      {% if post.rating == 2 %}<span class="badge badge-pill" style="background-color:#e9242d;color:#eeeeee;">Boooo!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">2</span></span>{% endif %}
+                      {% if post.rating == 1 %}<span class="badge badge-pill" style="background-color:#e9242d;color:#eeeeee;">Booooo!!!&nbsp&nbsp<span class="badge badge-pill" style="background-color:#737373;">1</span></span>{% endif %}
+                      <br>
+                  {% endif %}
+                  <span style="font-weight:bold;"{{ _('%(when)s:', when=moment(post.timestamp).fromNow()) }}</span>
+                  {% if post.body %}{{ post.body }}{% endif %}</span>
+                    <!--                <form action="" method="POST" autocomplete="off">
+                    <input type="hidden" name="originalpost_id" value="{{ post.id }}">
+                    <div style="padding-right:75px;padding-left:175px;padding-top:12px;padding-bottom:7px;">
+                      <textarea style="border: 1px solid #198754;" class="form-control" name="subpost" rows="1" placeholder="Chime In"></textarea>
+                    <input type="submit" name="submit" value="Submit"></div>
+                  <form>
+
+                {% if post.language and post.language != g.locale %}
+                <br><br>
+                <span id="translation{{ post.id }}">
+                    <a href="javascript:translate(
+                                '#post{{ post.id }}',
+                                '#translation{{ post.id }}',
+                                '{{ post.language }}',
+                                '{{ g.locale }}');">{{ _('Translate') }}</a>
+                </span>
+                {% endif %}-->
+            </td>
+        </tr>
+    </table>

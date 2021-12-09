@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+<div style="text-align:center">
+<h3><span class="badge badge-pill" style="background-color:#39b249;">Add Moovie</span></h3>
+<p>How to add a moovie:<br>
+1) To ensure consistency please use the full title exactly as it appears on IMDB.  You can check the title by clicking <a href="https://www.imdb.com" target="_blank">HERE</a>.<br>
+Also don't forget to use the MoovieTribe format which includes the year of realease such as this: <br>
+Star Wars: Episode IV - A New Hope (1977)</p>
+
+<form action="" method="POST" autocomplete="off">
+  {{ form.hidden_tag() }}
+<!--    <div class='input-group' style="padding-right:75px;padding-left:75px;text-align:center;">-->
+        <input style="width:50%;padding:10px 0;margin-bottom:10px;border:1px solid #39b249; border-radius: 25px;text-align:center;" type='text' name='mootitle' pattern=".+[ ][(][0-9][0-9][0-9][0-9][)]" value="{{ mootitle }}"" />
+            {% for error in form.mootitle.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        <br>
+        <br>
+        2) To add the IMDB link to your moovie, search for your moovie on IMDB (you can use the link above). The result will have a url like this:
+        <br>
+        https://www.imdb.com/title/<b>tt0079574</b>/?ref_=nv_sr_srsg_0
+        <br>
+        The text you should enter below is that number starting with tt: tt0079574.
+        <br>
+        <br>
+        <input style="width:50%;padding:10px 40px;margin-bottom:10px;border:1px solid #39b249; border-radius: 25px;" pattern="tt\d+" type='text' name='imdb' placeholder='imdb id'/>
+        <br>
+        <input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" type="submit" name="submit"  border="0" value="Submit" alt="Search"/>
+    </div>
+</form>
+
+</div>
+{% endblock %}

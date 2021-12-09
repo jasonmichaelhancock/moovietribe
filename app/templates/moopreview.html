@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <form action="" method="post">
+      {{ form.hidden_tag() }}
+
+          <table class="table table-hover">
+              <tr>
+                <th width="225px" style="text-align:center">{{ form.film1.label }}</th><td width="70px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <th colspan="2" style="text-align:center">Welcome to your MooviEval! Here's How It Works<br></th>
+              </tr>
+              <tr>
+                <td><a href="https://www.imdb.com/title/tt0050083/", target="_blank"><img src="{{ url_for('static', filename = 'posters/1.jpg') }}" height="358px" alt=""></a></td>
+                <td style="text-align: center">
+                  {% for subfield in form.film1 %}
+                    {% if loop.index < 11 %}
+                    <div class="btn group" style="height:35px">
+                      {{ subfield(class="btn-check") }}
+                      {{ subfield.label(class="btn btn-outline-success") }}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </td>
+                <td><img src="{{ url_for('static', filename = 'MooScale.png') }}" height="358px" alt=""></td>
+                <td><img src="{{ url_for('static', filename = 'moovievaltext.png') }}" height="358px" alt=""></td>
+              </tr>
+              <tr>
+                <th style="text-align:center;vertical-align:middle;height:80px;">Haven't seen it?<br>Do you want to?</th>
+                  <td style="text-align: center">
+                    {% for subfield in form.film1 %}
+                      {% if loop.index > 10 %}
+                      <div class="btn group" style="height:35px">
+                        {{ subfield(class="btn-check") }}
+                        {{ subfield.label(class="btn btn-outline-success") }}
+                      </div>
+                      {% endif %}
+                      {% for error in form.film1.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                  {% endfor %}
+                </td>
+                <td style="text-align:center; vertical-align: middle;" colspan="2"><h4>
+                  <a style="visibility: {% if current_user.is_anonymous %}hidden {% else %}visible{% endif %};" class="btn btn-outline-success me-2" href="{{ url_for('main.mooreview', id=current_user.id) }}">{{ _('Let\'s Go!') }}</a>
+                  <a style="visibility: {% if current_user.is_anonymous %}visible {% else %}hidden{% endif %};" class="btn btn-outline-success me-2" href="{{ url_for('auth.register') }}">{{ _('Sign Up!') }}</a></h4></td>
+              </tr>
+            </table>
+      </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block app_content %}
+<div style="text-align: center">
+<h3><span class="badge badge-pill" style="background-color:#39b249;">&#128512 Sign Up &#128512</span></h3>
+      <form action="" method="post">
+        {{ form.hidden_tag() }}
+            <div style="text-align: center">
+            <input style="width:50%;padding:10px 0;margin-bottom:10px;text-align: center;border: 1px solid #39b249; border-radius: 25px;" type="text"  name="username" placeholder="username"/>
+            {% for error in form.username.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <input style="width:50%;padding:10px 0;margin-bottom:10px;text-align: center;border: 1px solid #39b249; border-radius: 25px;" type="text"  name="email" placeholder="email address"/>
+            {% for error in form.email.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <input style="width:50%;padding:10px 0;margin-bottom:10px;text-align: center;border:1px solid #39b249; border-radius: 25px;" type="password"  name="password" placeholder="password"/>
+            {% for error in form.password.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <input style="width:50%;padding:10px 0;margin-bottom:10px;text-align: center;border:1px solid #39b249; border-radius: 25px;" type="password"  name="password2" placeholder="retype password"/>
+            {% for error in form.password2.errors %}
+              <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <br>
+            <input style="padding:10px 40px;margin-bottom:10px;border: 1px solid #39b249; border-radius: 25px;" class="btn btn-outline-success" type="submit" name="submit" value="Submit"></div>
+      </form>
+{% endblock %}
